@@ -12,6 +12,9 @@ using TestDatabase.Abstractions;
 
 namespace TestDatabase.SqlServerDocker
 {
+    /// <summary>
+    /// Starts a docker container running SQL Server and blocks until SQL Server is ready to accept connections
+    /// </summary>
     public class SqlServerDockerDatabase : ITestDatabase
     {
         private readonly ILogger<SqlServerDockerDatabase> _logger;
@@ -19,6 +22,11 @@ namespace TestDatabase.SqlServerDocker
 
         private string _dockerContainerId;
 
+        /// <summary>
+        /// Starts a docker container running SQL Server and blocks until SQL Server is ready to accept connections
+        /// </summary>
+        /// <param name="options">Example new SqlServerDockerDatabaseOptions()</param>
+        /// <param name="logger">Optional. If not provided then logging will be performed using <see cref="System.Diagnostics.Debug"/></param>
         public SqlServerDockerDatabase(SqlServerDockerDatabaseOptions options, ILogger<SqlServerDockerDatabase> logger = null)
         {
             _logger = logger ?? new SqlServerDockerDatabaseSystemDebugLogger();
@@ -135,12 +143,12 @@ namespace TestDatabase.SqlServerDocker
         {
             using var connection = new SqlConnection(GetConnectionString());
 
-            var initialWait = 10;
+            var initialWait = _options.InitialWaitForSqlServerStartupInSeconds;
             _logger.LogDebug($"Will now wait {initialWait} to give docker server time to start");
             Thread.Sleep(TimeSpan.FromSeconds(initialWait));
 
-            var few = 5;
-            var maxAttempts = 10;
+            var few = _options.SecondsToWaitBetweenSqlServerConnectionRetries;
+            var maxAttempts = _options.NumberOfTimesToAttemptConnectingToSqlServer;
             var attemptCount = 0;
             var connectionOpened = false;
             Exception lastException = null;
