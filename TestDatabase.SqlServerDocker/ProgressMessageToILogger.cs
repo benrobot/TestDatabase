@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace TestDatabase.SqlServerDocker
 {
-    public class ProgressMessageToILogger : IProgress<JSONMessage>
+    internal class ProgressMessageToILogger : IProgress<JSONMessage>
     {
         private readonly ILogger _logger;
 
-        public ProgressMessageToILogger(ILogger logger)
+        internal ProgressMessageToILogger(ILogger logger)
         {
             _logger = logger;
         }

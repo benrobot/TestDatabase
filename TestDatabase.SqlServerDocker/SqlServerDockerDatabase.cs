@@ -35,11 +35,24 @@ namespace TestDatabase.SqlServerDocker
             WaitForServerToStartAsync().Wait();
         }
 
+        /// <summary>
+        /// Returns "Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};"
+        /// </summary>
+        /// <returns>Connection string</returns>
         public string GetConnectionString() => $"Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};";
 
+        /// <summary>
+        /// Returns "Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};Initial Catalog={databaseName}"
+        /// </summary>
+        /// <param name="databaseName">Database name to use a Initial Catalog in connection string</param>
+        /// <returns>Connection string</returns>
         public string GetConnectionString(string databaseName) =>
             $"{GetConnectionString()};Initial Catalog={databaseName}";
 
+        /// <summary>
+        /// Creates and opens a connection using the connection string from <see cref="GetConnectionString()"/>
+        /// </summary>
+        /// <returns>New open connection</returns>
         public IDbConnection GetNewDbConnection()
         {
             var conn = new SqlConnection(GetConnectionString());
@@ -47,6 +60,11 @@ namespace TestDatabase.SqlServerDocker
             return conn;
         }
 
+        /// <summary>
+        /// Creates and opens a connection using the connection string from <see cref="GetConnectionString(string)"/>
+        /// </summary>
+        /// <param name="databaseName">Database name to connect to</param>
+        /// <returns>New open connection</returns>
         public IDbConnection GetNewDbConnection(string databaseName)
         {
             var conn = new SqlConnection($"{GetConnectionString()};Initial Catalog={databaseName}");
@@ -54,6 +72,9 @@ namespace TestDatabase.SqlServerDocker
             return conn;
         }
 
+        /// <summary>
+        /// Stops and/or removes docker container based on options provided to <see cref="SqlServerDockerDatabase(SqlServerDockerDatabaseOptions, ILogger{SqlServerDockerDatabase})"/>
+        /// </summary>
         public void Dispose()
         {
             if (_options.StopDockerInstanceOnDispose)

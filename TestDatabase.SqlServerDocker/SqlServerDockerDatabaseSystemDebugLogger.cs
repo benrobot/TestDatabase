@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TestDatabase.SqlServerDocker
 {
-    public class SqlServerDockerDatabaseSystemDebugLogger : ILogger<SqlServerDockerDatabase>
+    internal class SqlServerDockerDatabaseSystemDebugLogger : ILogger<SqlServerDockerDatabase>
     {
         public IDisposable BeginScope<TState>(TState state) => throw new NotImplementedException();
 

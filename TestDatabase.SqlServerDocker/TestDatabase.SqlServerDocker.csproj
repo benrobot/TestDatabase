@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>8</LangVersion>
     <Authors>Benjamin Roedell</Authors>
     <Description>
@@ -15,9 +16,10 @@
     <RepositoryUrl>https://github.com/benrobot/TestDatabase</RepositoryUrl>
     <PackageIcon>logo_by_LogoMakr.png</PackageIcon>
     <PackageTags>TestDatabase SqlServer Docker</PackageTags>
-    <PackageReleaseNotes>1.1.0 Add connection delays to options and document more ;
+    <PackageReleaseNotes>1.1.1 Include XML docs ;
+1.1.0 Add connection delays to options and document more ;
 1.0.0 Initial Release</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,11 +37,7 @@
     <PackageReference Include="Docker.DotNet" Version="3.125.4" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="TestDatabase.Abstractions" Version="1.0.1" />
-    <!--<ProjectReference Include="..\TestDatabase.Abstractions\TestDatabase.Abstractions.csproj" />-->
+    <PackageReference Include="TestDatabase.Abstractions" Version="1.0.2" />
   </ItemGroup>
 
 </Project>
