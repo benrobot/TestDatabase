@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>8</LangVersion>
     <Authors>Benjamin Roedell</Authors>
     <Description>Abstractions for TestDatabase implementations
@@ -13,10 +14,11 @@ Logo created with LogoMakr.com</Description>
     <RepositoryUrl>https://github.com/benrobot/TestDatabase</RepositoryUrl>
     <PackageIcon>logo_by_LogoMakr.png</PackageIcon>
     <PackageTags>TestDatabase</PackageTags>
-    <PackageReleaseNotes>1.0.1 Document interface ;
-      1.0.0 Provide ITestDatabase interface
+    <PackageReleaseNotes>1.0.2 Include XML docs ;
+1.0.1 Document interface ;
+1.0.0 Provide ITestDatabase interface
     </PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
