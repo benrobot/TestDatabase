@@ -12,7 +12,7 @@ namespace TestDatabase.SqlServerDocker.Test
             var options = new SqlServerDockerDatabaseOptions();
 
             // Assert
-            options.DockerContainerName.Should().Be("TestDatabase_SqlServerDocker");
+            options.DockerContainerName.Should().Be("TestDatabase_SqlServerDocker_T");
             options.DockerSqlServerPassword.Should().Be("yourStrong(!)Password");
             options.DockerSqlServerHostPort.Should().Be(1433);
             options.DockerSqlServerImageName.Should().Be("mcr.microsoft.com/mssql/server");
@@ -51,11 +51,6 @@ namespace TestDatabase.SqlServerDocker.Test
             var options = new SqlServerDockerDatabaseOptions(stopDockerInstanceOnDispose: false);
 
             // Assert
-            options.DockerContainerName.Should().Be("TestDatabase_SqlServerDocker");
-            options.DockerSqlServerPassword.Should().Be("yourStrong(!)Password");
-            options.DockerSqlServerHostPort.Should().Be(1433);
-            options.DockerSqlServerImageName.Should().Be("mcr.microsoft.com/mssql/server");
-            options.DockerSqlServerImageTag.Should().Be("2019-GA-ubuntu-16.04");
             options.StopDockerInstanceOnDispose.Should().BeFalse();
             options.RemoveDockerContainerOnDispose.Should().BeFalse();
         }

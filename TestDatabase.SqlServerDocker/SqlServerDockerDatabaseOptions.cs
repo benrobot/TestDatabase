@@ -33,7 +33,7 @@
         {
             if (dockerContainerName == null)
             {
-                var executingAssemblyWithUnderscores = System.Reflection.Assembly.GetExecutingAssembly().GetName()?.Name?
+                var executingAssemblyWithUnderscores = System.Reflection.Assembly.GetCallingAssembly().GetName()?.Name?
                                                            .Replace(".", "_")
                                                        ?? nameof(SqlServerDockerDatabase);
 

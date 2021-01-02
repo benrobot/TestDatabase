@@ -16,10 +16,12 @@
     <RepositoryUrl>https://github.com/benrobot/TestDatabase</RepositoryUrl>
     <PackageIcon>logo_by_LogoMakr.png</PackageIcon>
     <PackageTags>TestDatabase SqlServer Docker</PackageTags>
-    <PackageReleaseNotes>1.1.1 Include XML docs ;
+    <PackageReleaseNotes>1.2.0 Fix default container name using wrong assembly to generate ;
+1.1.1 Include XML docs ;
 1.1.0 Add connection delays to options and document more ;
-1.0.0 Initial Release</PackageReleaseNotes>
-    <Version>1.1.1</Version>
+1.0.0 Initial Release
+    </PackageReleaseNotes>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
