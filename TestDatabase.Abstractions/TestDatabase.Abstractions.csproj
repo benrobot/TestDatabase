@@ -1,8 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>8</LangVersion>
+    <Authors>Benjamin Roedell</Authors>
+    <Description>Abstractions for TestDatabase implementations
+
+Logo created with LogoMakr.com</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/benrobot/TestDatabase</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/benrobot/TestDatabase</RepositoryUrl>
+    <PackageIcon>logo_by_LogoMakr.png</PackageIcon>
+    <PackageTags>TestDatabase</PackageTags>
+    <PackageReleaseNotes>Provide ITestDatabase interface</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\logo_by_LogoMakr.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

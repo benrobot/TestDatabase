@@ -12,7 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7BE91795-C5D5-49DB-9CF3-5AC80B8BB556}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		.github\workflows\build-publish-abstractions.yml = .github\workflows\build-publish-abstractions.yml
 		LICENSE = LICENSE
+		logo_by_LogoMakr.png = logo_by_LogoMakr.png
 	EndProjectSection
 EndProject
 Global
