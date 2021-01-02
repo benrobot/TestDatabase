@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
     - TestDatabase.Abstractions/**
+    - .github/workflows/build-publish-abstractions.yml
 
 jobs:
   build:
