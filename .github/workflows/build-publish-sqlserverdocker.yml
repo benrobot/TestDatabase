@@ -1,11 +1,6 @@
 name: Sql Server Docker
 
-on:
-  push:
-    branches: [ main ]
-    paths:
-    - TestDatabase.SqlServerDocker/**
-    - .github/workflows/build-publish-sqlserverdocker.yml
+on: push
 
 jobs:
   build:
@@ -21,11 +16,13 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release --no-build --include-symbols --verbosity normal TestDatabase.SqlServerDocker/TestDatabase.SqlServerDocker.csproj
     - name: Upload artifacts
+      if: ${{ '' != secrets.NUGET_API_KEY && 'refs/heads/main' == github.ref }}
       uses: actions/upload-artifact@v2
       with:
         path: |
           ./TestDatabase.SqlServerDocker/bin/Release/*.nupkg
     - name: Publish package
+      if: ${{ '' != secrets.NUGET_API_KEY && 'refs/heads/main' == github.ref }}
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PACKAGE_NAME: TestDatabase.SqlServerDocker
