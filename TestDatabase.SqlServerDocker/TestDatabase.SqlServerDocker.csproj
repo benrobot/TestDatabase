@@ -4,7 +4,31 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>8</LangVersion>
+    <Authors>Benjamin Roedell</Authors>
+    <Description>
+      TestDatabase implementation using Sql Server running on Docker
+
+      Logo created with LogoMakr.com
+    </Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/benrobot/TestDatabase</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/benrobot/TestDatabase</RepositoryUrl>
+    <PackageIcon>logo_by_LogoMakr.png</PackageIcon>
+    <PackageTags>TestDatabase SqlServer Docker</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <Version>1.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\logo_by_LogoMakr.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Docker.DotNet" Version="3.125.4" />
@@ -13,7 +37,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestDatabase.Abstractions\TestDatabase.Abstractions.csproj" />
+    <PackageReference Include="TestDatabase.Abstractions" Version="1.0" />
+    <!--<ProjectReference Include="..\TestDatabase.Abstractions\TestDatabase.Abstractions.csproj" />-->
   </ItemGroup>
 
 </Project>
