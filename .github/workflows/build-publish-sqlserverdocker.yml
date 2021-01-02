@@ -1,6 +1,9 @@
 name: Sql Server Docker
 
-on: push
+on: 
+  push:
+    paths-ignore:
+    - README.md
 
 jobs:
   build:
