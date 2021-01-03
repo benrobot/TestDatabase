@@ -20,14 +20,14 @@ jobs:
       run: dotnet test --configuration Release --no-build --verbosity normal --logger "console;verbosity=detailed"
     - name: Pack SqlServerDocker
       run: dotnet pack --configuration Release --no-build --include-symbols --verbosity normal TestDatabase.SqlServerDocker/TestDatabase.SqlServerDocker.csproj
-    - name: Upload SqlServerDocker artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        path: |
-          ./TestDatabase.SqlServerDocker/bin/Release/*.nupkg
-    - name: Publish SqlServerDocker package
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-        PACKAGE_NAME: TestDatabase.SqlServerDocker
-        PROJECT_FILE_PATH: ./TestDatabase.SqlServerDocker/TestDatabase.SqlServerDocker.csproj
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+#    - name: Upload SqlServerDocker artifacts
+#      uses: actions/upload-artifact@v2
+#      with:
+#        path: |
+#          ./TestDatabase.SqlServerDocker/bin/Release/*.nupkg
+#    - name: Publish SqlServerDocker package
+#      uses: brandedoutcast/publish-nuget@v2.5.5
+#      with:
+#        PACKAGE_NAME: TestDatabase.SqlServerDocker
+#        PROJECT_FILE_PATH: ./TestDatabase.SqlServerDocker/TestDatabase.SqlServerDocker.csproj
+#        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
