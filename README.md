@@ -22,10 +22,22 @@ using (var testDatabase = new SqlServerDockerDatabase(new SqlServerDockerDatabas
 ```
 
 #### Use a different port
-Perhaps you don't want it to use port 1433 because you have another instance of SQL Server running locally. In this example we set the port to 1337 instead.
+Perhaps you don't want it to use port 1433 because you have another instance of SQL Server running locally. In this example we set the port to 1337 instead by setting the `dockerSqlServerHostPort` parameter.
 
 ```csharp
 var options = new SqlServerDockerDatabaseOptions(dockerSqlServerHostPort: 1337);
+using (var testDatabase = new SqlServerDockerDatabase(options))
+{ 
+    var connectionString = testDatabase.GetConnectionString();
+    // Do stuff with a real SQL Server database
+}
+```
+
+#### Leave it running after the test completes
+Sometimes you're dealing with a particulary pesky problem and you want to connect to the same database against which your tests just ran. This example shows how to leave the the SQL Server running after the test has completed using the `stopDockerInstanceOnDispose` parameter.
+
+```csharp
+var options = new SqlServerDockerDatabaseOptions(stopDockerInstanceOnDispose: false);
 using (var testDatabase = new SqlServerDockerDatabase(options))
 { 
     var connectionString = testDatabase.GetConnectionString();
@@ -65,7 +77,7 @@ using (var testDatabase = new SqlServerDockerDatabase(options))
 | dockerSqlServerHostPort                        | 1433                                        | The port on which Docker will expose the server. Inside the container SQL Server is still running on port 1433 but that is abstracted away by the magic of Docker. |
 | dockerSqlServerImageName                       | `mcr.microsoft.com/mssql/server`            | The Docker image name used to `docker pull ...` |
 | dockerSqlServerImageTag                        | `2019-GA-ubuntu-16.04`                      | The Docker image tag used to `docker pull ...`  |
-| stopDockerInstanceOnDispose                    | true                                        | If both `stopDockerInstanceOnDispose` and `removeDockerContainerOnDispose` are unspecified then the default is `true`. However, if `removeDockerContainerOnDispose` is explicitly specified as `true` then `stopDockerInstanceOnDispose` is ignored (even if it was specified to be `false`). Similarly, if `stopDockerInstanceOnDispose` is specified as `false` and `removeDockerContainerOnDispose` is unspecified then `removeDockerContainerOnDispose` is effectively `false`. |
+| stopDockerInstanceOnDispose                    | true                                        | If both `stopDockerInstanceOnDispose` and `removeDockerContainerOnDispose` are unspecified then the default is `true`. However, if `removeDockerContainerOnDispose` is explicitly specified as `true` then `stopDockerInstanceOnDispose` is ignored (even if it was specified to be `false`). Similarly, if `stopDockerInstanceOnDispose` is specified as `false` and `removeDockerContainerOnDispose` is unspecified then `removeDockerContainerOnDispose` is effectively `false`. Regardless of these settings the **SqlServerDockerDatabase** constructor always stops and removes any previous containers with the same name before creating a brand new container. |
 | removeDockerContainerOnDispose                 | true                                        | See caveat under the description for `stopDockerInstanceOnDispose` |
 | initialWaitForSqlServerStartupInSeconds        | 10                                          | The number of seconds to wait before the **SqlServerDockerDatabase** constructor begins attempting to connect to the SQL Server to verify it is ready before returning. |
 | secondsToWaitBetweenSqlServerConnectionRetries | 5                                           | The number of seconds the **SqlServerDockerDatabase** constructor waits between attempting to connect to SQL Server to verify it is ready before returning |
