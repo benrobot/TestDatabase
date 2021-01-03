@@ -6,6 +6,10 @@ Published at https://www.nuget.org/packages/TestDatabase.SqlServerDocker/
 
 See examples at https://github.com/benrobot/TestDatabase.Sample
 
+#### Alternatives
+
+[DotNet.Testcontainers](https://www.nuget.org/packages/DotNet.Testcontainers/) - I found out about **DotNet.Testcontainers** after creating this package but I have yet to try it out.
+
 ## Usage
 
 #### Minimal example
