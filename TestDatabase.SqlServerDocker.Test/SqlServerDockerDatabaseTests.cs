@@ -22,7 +22,7 @@ namespace TestDatabase.SqlServerDocker.Test
         [Fact]
         public async Task ContainerLifecyle()
         {
-            const string containerName = "ContainerLifecyle";
+            const string containerName = "ContainerLifecyleSqlServer";
 
             using (var testDatabaseThatDoesntStop = new SqlServerDockerDatabase(
                 new SqlServerDockerDatabaseOptions(stopDockerInstanceOnDispose: false, dockerSqlServerHostPort: 1457,
