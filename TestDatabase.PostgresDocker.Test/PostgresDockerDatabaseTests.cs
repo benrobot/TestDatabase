@@ -22,7 +22,7 @@ namespace TestDatabase.PostgresDocker.Test
         [Fact]
         public async Task ContainerLifecyle()
         {
-            const string containerName = "ContainerLifecyle";
+            const string containerName = "ContainerLifecylePostgres";
 
             using (var testDatabaseThatDoesntStop = new PostgresDockerDatabase(
                 new PostgresDockerDatabaseOptions(stopDockerInstanceOnDispose: false, dockerPostgresHostPort: 5433,
