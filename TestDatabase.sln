@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDatabase.PostgresDocker", "TestDatabase.PostgresDocker\TestDatabase.PostgresDocker.csproj", "{14E718DB-2C53-4C97-9F2A-9752DB609F5F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDatabase.PostgresDocker.Test", "TestDatabase.PostgresDocker.Test\TestDatabase.PostgresDocker.Test.csproj", "{2B823725-74CD-4517-9C92-F090A32F52A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,30 @@ Global
 		{68280836-2C45-4763-B629-97602799BF5A}.Release|x64.Build.0 = Release|Any CPU
 		{68280836-2C45-4763-B629-97602799BF5A}.Release|x86.ActiveCfg = Release|Any CPU
 		{68280836-2C45-4763-B629-97602799BF5A}.Release|x86.Build.0 = Release|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Debug|x64.Build.0 = Debug|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Debug|x86.Build.0 = Debug|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Release|x64.ActiveCfg = Release|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Release|x64.Build.0 = Release|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Release|x86.ActiveCfg = Release|Any CPU
+		{14E718DB-2C53-4C97-9F2A-9752DB609F5F}.Release|x86.Build.0 = Release|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Debug|x64.Build.0 = Debug|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Debug|x86.Build.0 = Debug|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Release|x64.ActiveCfg = Release|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Release|x64.Build.0 = Release|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B823725-74CD-4517-9C92-F090A32F52A0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

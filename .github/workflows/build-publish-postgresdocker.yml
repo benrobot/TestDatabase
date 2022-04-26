@@ -1,0 +1,33 @@
+name: Postgres Docker
+
+on: 
+  push:
+    paths-ignore:
+    - README.md
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Restore all
+      run: dotnet restore
+    - name: Build all
+      run: dotnet build --configuration Release --no-restore
+    - name: Test all
+      run: dotnet test --configuration Release --no-build --verbosity normal --logger "console;verbosity=detailed"
+    - name: Pack PostgresDocker
+      run: dotnet pack --configuration Release --no-build --include-symbols --verbosity normal TestDatabase.PostgresDocker/TestDatabase.PostgresDocker.csproj
+    - name: Upload PostgresDocker artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: |
+          ./TestDatabase.PostgresDocker/bin/Release/*.nupkg
+    # - name: Publish PostgresDocker package
+    #   uses: brandedoutcast/publish-nuget@v2.5.5
+    #   with:
+    #     PACKAGE_NAME: TestDatabase.PostgresDocker
+    #     PROJECT_FILE_PATH: ./TestDatabase.PostgresDocker/TestDatabase.PostgresDocker.csproj
+    #     NUGET_KEY: ${{secrets.NUGET_API_KEY}}
