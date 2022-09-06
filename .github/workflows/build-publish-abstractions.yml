@@ -19,14 +19,14 @@ jobs:
       run: dotnet build --configuration Release --no-restore TestDatabase.Abstractions/TestDatabase.Abstractions.csproj
     - name: Pack
       run: dotnet pack --configuration Release --no-build --include-symbols --verbosity normal TestDatabase.Abstractions/TestDatabase.Abstractions.csproj
-#    - name: Upload artifacts
-#      uses: actions/upload-artifact@v2
-#      with:
-#        path: |
-#          ./TestDatabase.Abstractions/bin/Release/*.nupkg
-#    - name: Publish package
-#      uses: brandedoutcast/publish-nuget@v2.5.5
-#      with:
-#        PACKAGE_NAME: TestDatabase.Abstractions
-#        PROJECT_FILE_PATH: ./TestDatabase.Abstractions/TestDatabase.Abstractions.csproj
-#        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: |
+          ./TestDatabase.Abstractions/bin/Release/*.nupkg
+    - name: Publish package
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+        PACKAGE_NAME: TestDatabase.Abstractions
+        PROJECT_FILE_PATH: ./TestDatabase.Abstractions/TestDatabase.Abstractions.csproj
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}

@@ -39,7 +39,7 @@ namespace TestDatabase.SqlServerDocker
         /// Returns "Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};"
         /// </summary>
         /// <returns>Connection string</returns>
-        public string GetConnectionString() => $"Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};";
+        public string GetConnectionString() => $"Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};Encrypt=false;";
 
         /// <summary>
         /// Returns "Data Source=tcp:localhost,{_options.DockerSqlServerHostPort};User Id=sa;Password={_options.DockerSqlServerPassword};Initial Catalog={databaseName}"
