@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Docker.DotNet;
 using FluentAssertions;
 using Npgsql;
@@ -48,6 +49,9 @@ namespace TestDatabase.PostgresDocker.Test
                 await connection.OpenAsync();
                 await connection.ShouldReportVersionAsync("PostgreSQL 14.2");
             }
+
+            // The assertion for a stopped container seems to run faster than the docker engine can update its internal status. So adding a delay here.
+            await Task.Delay(TimeSpan.FromSeconds(1));
 
             await _dockerClient.ShouldReportStoppedContainerNamedAsync(containerName);
 
