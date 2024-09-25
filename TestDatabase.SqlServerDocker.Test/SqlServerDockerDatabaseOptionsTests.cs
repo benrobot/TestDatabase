@@ -16,7 +16,7 @@ namespace TestDatabase.SqlServerDocker.Test
             options.DockerSqlServerPassword.Should().Be("yourStrong(!)Password");
             options.DockerSqlServerHostPort.Should().Be(1433);
             options.DockerSqlServerImageName.Should().Be("mcr.microsoft.com/mssql/server");
-            options.DockerSqlServerImageTag.Should().Be("2019-GA-ubuntu-16.04");
+            options.DockerSqlServerImageTag.Should().Be("2022-CU14-ubuntu-22.04");
             options.StopDockerInstanceOnDispose.Should().BeTrue();
             options.RemoveDockerContainerOnDispose.Should().BeTrue();
         }

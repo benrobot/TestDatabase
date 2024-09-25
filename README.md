@@ -59,7 +59,7 @@ var options = new SqlServerDockerDatabaseOptions(
     dockerSqlServerPassword: "myEvenStronger(!)Password",
     dockerSqlServerHostPort: 1337,
     dockerSqlServerImageName: "mcr.microsoft.com/mssql/server",
-    dockerSqlServerImageTag: "2017-latest",
+    dockerSqlServerImageTag: "2022-latest",
     stopDockerInstanceOnDispose: false,
     removeDockerContainerOnDispose: false,
     initialWaitForSqlServerStartupInSeconds: 20,
@@ -80,7 +80,7 @@ using (var testDatabase = new SqlServerDockerDatabase(options))
 | dockerSqlServerPassword                        | `yourStrong(!)Password`                     | This will be the `sa` password. Don't make it too simple because otherwise the SQL Server database will reject it because it does not meet certain password complexity requirements. See [Microsoft SQL Server Password Policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15). This is the same password that is included in the connection string returned by the `GetConnectionString()` method. |
 | dockerSqlServerHostPort                        | 1433                                        | The port on which Docker will expose the server. Inside the container SQL Server is still running on port 1433 but that is abstracted away by the magic of Docker. |
 | dockerSqlServerImageName                       | `mcr.microsoft.com/mssql/server`            | The Docker image name used to `docker pull ...` |
-| dockerSqlServerImageTag                        | `2019-GA-ubuntu-16.04`                      | The Docker image tag used to `docker pull ...`  |
+| dockerSqlServerImageTag                        | `2022-CU14-ubuntu-22.04`                    | The Docker image tag used to `docker pull ...`  |
 | stopDockerInstanceOnDispose                    | true                                        | If both `stopDockerInstanceOnDispose` and `removeDockerContainerOnDispose` are unspecified then the default is `true`. However, if `removeDockerContainerOnDispose` is explicitly specified as `true` then `stopDockerInstanceOnDispose` is ignored (even if it was specified to be `false`). Similarly, if `stopDockerInstanceOnDispose` is specified as `false` and `removeDockerContainerOnDispose` is unspecified then `removeDockerContainerOnDispose` is effectively `false`. Regardless of these settings the **SqlServerDockerDatabase** constructor always stops and removes any previous containers with the same name before creating a brand new container. |
 | removeDockerContainerOnDispose                 | true                                        | See caveat under the description for `stopDockerInstanceOnDispose` |
 | initialWaitForSqlServerStartupInSeconds        | 10                                          | The number of seconds to wait before the **SqlServerDockerDatabase** constructor begins attempting to connect to the SQL Server to verify it is ready before returning. |
@@ -140,7 +140,7 @@ var options = new PostgresDockerDatabaseOptions(
     dockerPostgresPassword: "myevenstrongersecretpassword",
     dockerPostgresHostPort: 1337,
     dockerPostgresImageName: "postgres",
-    dockerPostgresImageTag: "14.2-bullseye",
+    dockerPostgresImageTag: "16.4-bullseye",
     stopDockerInstanceOnDispose: false,
     removeDockerContainerOnDispose: false,
     initialWaitForPostgresStartupInSeconds: 20,
@@ -162,7 +162,7 @@ using (var testDatabase = new PostgresDockerDatabase(options))
 | dockerPostgresPassword                         | `mysecretpassword`                          | This will be the password used to connect to the database. |
 | dockerPostgresHostPort                         | 5432                                        | The port on which Docker will expose the server. Inside the container Postgres is still running on port 5432 but that is abstracted away by the magic of Docker. |
 | dockerPostgresImageName                        | `postgres`                                  | The Docker image name used to `docker pull ...` |
-| dockerPostgresImageTag                         | `14.2-alpine`                               | The Docker image tag used to `docker pull ...`  |
+| dockerPostgresImageTag                         | `16.4-alpine`                               | The Docker image tag used to `docker pull ...`  |
 | stopDockerInstanceOnDispose                    | true                                        | If both `stopDockerInstanceOnDispose` and `removeDockerContainerOnDispose` are unspecified then the default is `true`. However, if `removeDockerContainerOnDispose` is explicitly specified as `true` then `stopDockerInstanceOnDispose` is ignored (even if it was specified to be `false`). Similarly, if `stopDockerInstanceOnDispose` is specified as `false` and `removeDockerContainerOnDispose` is unspecified then `removeDockerContainerOnDispose` is effectively `false`. Regardless of these settings the **PostgresDockerDatabase** constructor always stops and removes any previous containers with the same name before creating a brand new container. |
 | removeDockerContainerOnDispose                 | true                                        | See caveat under the description for `stopDockerInstanceOnDispose` |
 | initialWaitForPostgresStartupInSeconds         | 10                                          | The number of seconds to wait before the **PostgresDockerDatabase** constructor begins attempting to connect to the SQL Server to verify it is ready before returning. |

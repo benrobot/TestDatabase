@@ -33,7 +33,7 @@ namespace TestDatabase.PostgresDocker.Test
 
                 await using var connection = new NpgsqlConnection(testDatabaseThatDoesntStop.GetConnectionString());
                 await connection.OpenAsync();
-                await connection.ShouldReportVersionAsync("PostgreSQL 14.2");
+                await connection.ShouldReportVersionAsync("PostgreSQL 16.4");
             }
 
             var firstContainersId = await _dockerClient.ShouldReportRunningContainerNamedAsync(containerName);
@@ -47,7 +47,7 @@ namespace TestDatabase.PostgresDocker.Test
 
                 await using var connection = new NpgsqlConnection(testDatabaseThatDoesntRemove.GetConnectionString());
                 await connection.OpenAsync();
-                await connection.ShouldReportVersionAsync("PostgreSQL 14.2");
+                await connection.ShouldReportVersionAsync("PostgreSQL 16.4");
             }
 
             // The assertion for a stopped container seems to run faster than the docker engine can update its internal status. So adding a delay here.
@@ -63,7 +63,7 @@ namespace TestDatabase.PostgresDocker.Test
 
                 await using var connection = new NpgsqlConnection(testDatabaseThatRemoves.GetConnectionString());
                 await connection.OpenAsync();
-                await connection.ShouldReportVersionAsync("PostgreSQL 14.2");
+                await connection.ShouldReportVersionAsync("PostgreSQL 16.4");
             }
 
             await _dockerClient.ShouldReportNoContainerNamedAsync(containerName);

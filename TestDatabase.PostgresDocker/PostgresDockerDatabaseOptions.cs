@@ -13,7 +13,7 @@
         /// <param name="dockerPostgresPassword">Defaults to "mysecretpassword"</param>
         /// <param name="dockerPostgresHostPort">Defaults to 5432</param>
         /// <param name="dockerPostgresImageName">Defaults to "postgres"</param>
-        /// <param name="dockerPostgresImageTag">Defaults to "14.2-alpine"</param>
+        /// <param name="dockerPostgresImageTag">Defaults to "16.4-alpine"</param>
         /// <param name="stopDockerInstanceOnDispose">Default true. Forced to true if remove docker container is true</param>
         /// <param name="removeDockerContainerOnDispose">If true then also stops docker instance</param>
         /// <param name="initialWaitForPostgresStartupInSeconds">Defaults to 10 seconds. The number of seconds to wait for SQL Server to startup before starting connection attempts</param>
@@ -25,7 +25,7 @@
             string dockerPostgresPassword = "mysecretpassword",
             int dockerPostgresHostPort = 5432,
             string dockerPostgresImageName = "postgres",
-            string dockerPostgresImageTag = "14.2-alpine",
+            string dockerPostgresImageTag = "16.4-alpine",
             bool? stopDockerInstanceOnDispose = null,
             bool? removeDockerContainerOnDispose = null,
             int initialWaitForPostgresStartupInSeconds = 10,

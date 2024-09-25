@@ -17,7 +17,7 @@ namespace TestDatabase.PostgresDocker.Test
             options.DockerPostgresPassword.Should().Be("mysecretpassword");
             options.DockerPostgresHostPort.Should().Be(5432);
             options.DockerPostgresImageName.Should().Be("postgres");
-            options.DockerPostgresImageTag.Should().Be("14.2-alpine");
+            options.DockerPostgresImageTag.Should().Be("16.4-alpine");
             options.StopDockerInstanceOnDispose.Should().BeTrue();
             options.RemoveDockerContainerOnDispose.Should().BeTrue();
         }

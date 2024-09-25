@@ -11,7 +11,7 @@
         /// <param name="dockerSqlServerPassword">Defaults to "yourStrong(!)Password"</param>
         /// <param name="dockerSqlServerHostPort">Defaults to 1433</param>
         /// <param name="dockerSqlServerImageName">Defaults to "mcr.microsoft.com/mssql/server"</param>
-        /// <param name="dockerSqlServerImageTag">Defaults to "2019-GA-ubuntu-16.04"</param>
+        /// <param name="dockerSqlServerImageTag">Defaults to "2022-CU14-ubuntu-22.04"</param>
         /// <param name="dockerContainerName">Defaults to assembly name. Not enforced but recommend max length 30 characters and limited to alphanumerics and underscores.</param>
         /// <param name="stopDockerInstanceOnDispose">Default true. Forced to true if remove docker container is true</param>
         /// <param name="removeDockerContainerOnDispose">If true then also stops docker instance</param>
@@ -23,7 +23,7 @@
             string dockerSqlServerPassword = "yourStrong(!)Password",
             int dockerSqlServerHostPort = 1433,
             string dockerSqlServerImageName = "mcr.microsoft.com/mssql/server",
-            string dockerSqlServerImageTag = "2019-GA-ubuntu-16.04",
+            string dockerSqlServerImageTag = "2022-CU14-ubuntu-22.04",
             bool? stopDockerInstanceOnDispose = null,
             bool? removeDockerContainerOnDispose = null,
             int initialWaitForSqlServerStartupInSeconds = 10,

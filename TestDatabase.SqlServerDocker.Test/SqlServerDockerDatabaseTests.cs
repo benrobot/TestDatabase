@@ -32,7 +32,7 @@ namespace TestDatabase.SqlServerDocker.Test
 
                 await using var connection = new SqlConnection(testDatabaseThatDoesntStop.GetConnectionString());
                 await connection.OpenAsync();
-                await connection.ShouldReportVersionAsync("Microsoft SQL Server 2019");
+                await connection.ShouldReportVersionAsync("Microsoft SQL Server 2022 (RTM-CU14)");
             }
 
             var firstContainersId = await _dockerClient.ShouldReportRunningContainerNamedAsync(containerName);
@@ -46,7 +46,7 @@ namespace TestDatabase.SqlServerDocker.Test
 
                 await using var connection = new SqlConnection(testDatabaseThatDoesntRemove.GetConnectionString());
                 await connection.OpenAsync();
-                await connection.ShouldReportVersionAsync("Microsoft SQL Server 2019");
+                await connection.ShouldReportVersionAsync("Microsoft SQL Server 2022 (RTM-CU14)");
             }
 
             await _dockerClient.ShouldReportStoppedContainerNamedAsync(containerName);
@@ -59,7 +59,7 @@ namespace TestDatabase.SqlServerDocker.Test
 
                 await using var connection = new SqlConnection(testDatabaseThatRemoves.GetConnectionString());
                 await connection.OpenAsync();
-                await connection.ShouldReportVersionAsync("Microsoft SQL Server 2019");
+                await connection.ShouldReportVersionAsync("Microsoft SQL Server 2022 (RTM-CU14)");
             }
 
             await _dockerClient.ShouldReportNoContainerNamedAsync(containerName);
